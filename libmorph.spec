@@ -61,7 +61,8 @@ rm -rf $RPM_BUILD_ROOT
 
 make install DESTDIR=$RPM_BUILD_ROOT
 
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/*.so.*.*.*
+strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*.* \
+	$RPM_BUILD_ROOT%{_libdir}/morph/loaders/lib*.so
 
 gzip -9nf AUTHORS ChangeLog NEWS README TODO
 
