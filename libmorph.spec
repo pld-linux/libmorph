@@ -2,9 +2,11 @@ Summary:	libmorph Morphing Library
 Summary(pl):	libmorph biblioteka do morfingu
 Name:		libmorph
 Version:	0.1.2
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Libraries
+Group(de):	X11/Libraries
+Group(es):	X11/Bibliotecas
 Group(pl):	X11/Biblioteki
 Source0:	http://wine.sexcity.pl/morpheus/%{name}-%{version}.tar.gz
 URL:		http://wine.sexcity.pl/morpheus/
@@ -28,6 +30,7 @@ wspomaga:
 Summary:	LibMorph development
 Summary(pl):	LibMorph development
 Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
@@ -42,6 +45,7 @@ libmorph.
 Summary:	LibMorph static
 Summary(pl):	LibMorph static
 Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
