@@ -6,6 +6,7 @@ Release:	5
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://wine.sexcity.pl/morpheus/%{name}-%{version}.tar.gz
+# Source0-md5:	d7df93c012418ec16ed6773bb5cb926f
 URL:		http://wine.sexcity.pl/morpheus/
 BuildRequires:	autoconf
 BuildRequires:	automake
