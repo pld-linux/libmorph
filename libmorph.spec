@@ -19,6 +19,7 @@ wspomaga :
 LWO - LightWave
 3DS - 3D Studio 
 
+%package devel
 Summary:	LibMorph development
 Summary(pl):	LibMorph development
 Group:		X11/Libraries/Development
