@@ -85,9 +85,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(644,root,root) %{_libdir}/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.la
+%{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/*.sh
-%attr(755,root,root) %{_libdir}/morph/loaders/*.la
+%{_libdir}/morph/loaders/*.la
 %{_includedir}/morph
 
 %files static
