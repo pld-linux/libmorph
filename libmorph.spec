@@ -13,12 +13,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_prefix		/usr/X11R6
 
 %description
-A library that provides loaders for various popular formats of meshes (3d
-modeler object files). The meshes are stored in memory in structures and
-arrays easily accessible via 3D rendering API's like OpenGL[TM].
+A library that provides loaders for various popular formats of meshes
+(3d modeler object files). The meshes are stored in memory in
+structures and arrays easily accessible via 3D rendering API's like
+OpenGL[TM].
 
 %description -l pl
-LibMorph wspomaga wy¶wietlanie projektów 3D, w chwili obecnej wspomaga:
+LibMorph wspomaga wy¶wietlanie projektów 3D, w chwili obecnej
+wspomaga:
  - LWO - LightWave
  - 3DS - 3D Studio
 
@@ -33,7 +35,8 @@ Requires:	%{name} = %{version}
 Header files, and debug information.
 
 %description -l pl devel
-Pliki nag³ówkowe potrzebne do kompilacji programów u¿ywaj±cych libmorph.
+Pliki nag³ówkowe potrzebne do kompilacji programów u¿ywaj±cych
+libmorph.
 
 %package static
 Summary:	LibMorph static
