@@ -2,7 +2,7 @@ Summary:	libmorph Morphing Library
 Summary(pl):	libmorph biblioteka do morfingu
 Name:		libmorph
 Version:	0.1.2
-Release:	4
+Release:	5
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://wine.sexcity.pl/morpheus/%{name}-%{version}.tar.gz
@@ -55,10 +55,10 @@ Biblioteka libmorph linkowna statycznie.
 %setup -q
 
 %build
+rm -f missing
 %{__libtoolize}
 aclocal
 %{__autoconf}
-rm -f missing
 %{__automake}
 %configure
 %{__make}
