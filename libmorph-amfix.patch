@@ -1,0 +1,25 @@
+--- libmorph-0.1.2/src/Makefile.am.orig	1999-10-30 21:10:49.000000000 +0200
++++ libmorph-0.1.2/src/Makefile.am	2004-04-01 22:44:04.362456440 +0200
+@@ -2,18 +2,19 @@
+ lib_LTLIBRARIES = 		\
+ 	libmorph.la
+ 
+-libexecdir = $(libdir)/morph/loaders
++plugindir = $(libdir)/morph/loaders
+ 
+ LWOB_LIB =	libmorph-lwob.la
+ A3DS_LIB =	libmorph-a3ds.la
+ 
+-libexec_LTLIBRARIES =		\
++plugin_LTLIBRARIES =		\
+ 	$(LWOB_LIB) $(A3DS_LIB)
+ 
+ #noinst_PROGRAMS = testmorph
+ DEPS = libmorph.la
+ #INCLUDES = $(GNOME_INCLUDEDIR)
+-AM_CPPFLAGS = "-DMORPH_LIBDIR=\"$(libexecdir)\""
++AM_CPPFLAGS = "-DMORPH_LIBDIR=\"$(plugindir)\""
++libmorph_la_LIBADD = -ldl
+ 
+ LDADDS = libmorph.la
+ 
