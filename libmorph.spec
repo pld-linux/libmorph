@@ -2,14 +2,11 @@ Summary:	libmorph Morphing Library
 Summary(pl):	libmorph biblioteka do morfingu
 Name:		libmorph
 Version:	0.1.2
-Release:	1
+Release:	2
 Copyright:	GPL
 Group:		X11/Libraries
 Group(pl):	X11/Biblioteki
 Source0:	http://wine.sexcity.pl/morpheus/%name-%version.tar.gz
-#Patch0:		
-#BuildRequires:	
-#Requires:	
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %define	_prefix	/usr/X11R6
@@ -22,8 +19,6 @@ wspomaga :
 LWO - LightWave
 3DS - 3D Studio 
 
-
-%package devel
 Summary:	LibMorph development
 Summary(pl):	LibMorph development
 Group:		X11/Libraries/Development
@@ -51,8 +46,6 @@ Biblioteka libmorph linkowna statycznie.
 %prep
 %setup -q
 
-#%patch
-
 %build
 ./configure --prefix=%{_prefix}
 make RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
@@ -67,6 +60,9 @@ strip $RPM_BUILD_ROOT%{_libdir}/*.so.*.*.*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post -p /sbin/ldconfig
+%postun -p /sbin/config
 
 %files
 %defattr(644,root,root,755)
