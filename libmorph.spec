@@ -3,40 +3,44 @@ Summary(pl):	libmorph biblioteka do morfingu
 Name:		libmorph
 Version:	0.1.2
 Release:	2
-Copyright:	GPL
+License:	GPL
 Group:		X11/Libraries
 Group(pl):	X11/Biblioteki
-Source0:	http://wine.sexcity.pl/morpheus/%name-%version.tar.gz
-Buildroot:	/tmp/%{name}-%{version}-root
+Source0:	http://wine.sexcity.pl/morpheus/%{name}-%{version}.tar.gz
+URL:		http://wine.sexcity.pl/morpheus/
+Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define	_prefix	/usr/X11R6
+%define		_prefix		/usr/X11R6
 
 %description
+A library that provides loaders for various popular formats of meshes (3d
+modeler object files). The meshes are stored in memory in structures and
+arrays easily accessible via 3D rendering API's like OpenGL[TM].
 
 %description -l pl
-LibMorph wspomaga wy¶wietlanie projektów 3D, w chwili obecnej
-wspomaga :
-LWO - LightWave
-3DS - 3D Studio 
+LibMorph wspomaga wy¶wietlanie projektów 3D, w chwili obecnej wspomaga:
+ - LWO - LightWave
+ - 3DS - 3D Studio
 
 %package devel
 Summary:	LibMorph development
 Summary(pl):	LibMorph development
-Group:		X11/Libraries/Development
-Group(pl):	X11/Biblioteki/Programowanie
+Group:		X11/Development/Libraries
+Group(pl):	X11/Programowanie/Biblioteki
+Requires:	%{name} = %{version}
 
 %description devel
 Header files, and debug information.
 
 %description -l pl devel
-Pliki nag³ówkowe potrzebne do kompilacji programów
-u¿ywaj±cych libmorph.
+Pliki nag³ówkowe potrzebne do kompilacji programów u¿ywaj±cych libmorph.
 
 %package static
 Summary:	LibMorph static
 Summary(pl):	LibMorph static
-Group:		X11/Libraries/Development
-Group(pl):	X11/Biblioteki/Programowanie
+Group:		X11/Development/Libraries
+Group(pl):	X11/Programowanie/Biblioteki
+Requires:	%{name}-devel = %{version}
 
 %description static
 Static library of libmorph.
@@ -48,37 +52,42 @@ Biblioteka libmorph linkowna statycznie.
 %setup -q
 
 %build
-./configure --prefix=%{_prefix}
-make RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
+LDFLAGS="-s"; export LDFLAGS
+%configure
+make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make prefix=$RPM_BUILD_ROOT%{_prefix} install
+
+make install DESTDIR=$RPM_BUILD_ROOT
+
+strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/*.so.*.*.*
 
 gzip -9nf AUTHORS ChangeLog NEWS README TODO
 
-strip $RPM_BUILD_ROOT%{_libdir}/*.so.*.*.*
+%post   -p /sbin/ldconfig
+%postun -p /sbin/config
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/config
-
 %files
 %defattr(644,root,root,755)
-%doc {AUTHORS,ChangeLog,NEWS,README,TODO}.gz
-%attr(644,root,root) %{_libdir}/libmorph*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libmorph*.so.*.*.*
+%dir %{_libdir}/morph
+%dir %{_libdir}/morph/loaders
 %attr(755,root,root) %{_libdir}/morph/loaders/*.so
 
 %files devel
 %defattr(644,root,root,755)
-%attr(644,root,root) %{_includedir}/morph/*.h
-%attr(644,root,root) %{_libdir}/*.la
-%attr(644,root,root) %{_libdir}/libmorphConf.sh
+%doc *.gz
+%attr(644,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/*.sh
 %attr(755,root,root) %{_libdir}/morph/loaders/*.la
+%{_includedir}/morph
 
 %files static
 %defattr(644,root,root,755)
-%attr(644,root,root) %{_libdir}/*.a
-%attr(755,root,root) %{_libdir}/morph/loaders/*.a
+%{_libdir}/lib*.a
+%{_libdir}/morph/loaders/*.a
