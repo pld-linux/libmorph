@@ -35,7 +35,7 @@ Requires:	%{name} = %{version}
 %description devel
 Header files, and debug information.
 
-%description -l pl devel
+%description devel -l pl
 Pliki nag³ówkowe potrzebne do kompilacji programów u¿ywaj±cych
 libmorph.
 
@@ -48,7 +48,7 @@ Requires:	%{name}-devel = %{version}
 %description static
 Static library of libmorph.
 
-%description -l pl static
+%description static -l pl
 Biblioteka libmorph linkowna statycznie.
 
 %prep
