@@ -55,7 +55,7 @@ Biblioteka libmorph linkowna statycznie.
 %setup -q
 
 %build
-libtoolize --copy --force
+%{__libtoolize}
 aclocal
 %{__autoconf}
 rm -f missing
