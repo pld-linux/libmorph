@@ -8,7 +8,7 @@ Group:		X11/Libraries
 Group(pl):	X11/Biblioteki
 Source0:	http://wine.sexcity.pl/morpheus/%{name}-%{version}.tar.gz
 URL:		http://wine.sexcity.pl/morpheus/
-Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 
