@@ -2,7 +2,7 @@ Summary:	libmorph Morphing Library
 Summary(pl):	libmorph biblioteka do morfingu
 Name:		libmorph
 Version:	0.1.2
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
@@ -10,6 +10,9 @@ Group(es):	X11/Bibliotecas
 Group(pl):	X11/Biblioteki
 Source0:	http://wine.sexcity.pl/morpheus/%{name}-%{version}.tar.gz
 URL:		http://wine.sexcity.pl/morpheus/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -59,6 +62,11 @@ Biblioteka libmorph linkowna statycznie.
 %setup -q
 
 %build
+libtoolize --copy --force
+aclocal
+autoconf
+rm -f missing
+automake -a -c
 %configure
 %{__make}
 
