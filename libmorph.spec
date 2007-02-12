@@ -1,5 +1,5 @@
 Summary:	libmorph Morphing Library
-Summary(pl):	libmorph biblioteka do morfingu
+Summary(pl.UTF-8):   libmorph biblioteka do morfingu
 Name:		libmorph
 Version:	0.1.2
 Release:	6
@@ -22,37 +22,37 @@ OpenGL[TM].
 
 Currently it supports LWO (LightWave) and 3DS (3D Studio) formats.
 
-%description -l pl
-Ta biblioteka udostêpnia funkcje wczytuj±ce ró¿ne popularne formaty
-siatek (plików obiektów z modelerów 3D). Siatki s± zapisywane w
-pamiêci w strukturach i tablicach ³atwo dostêpnych poprzez API
-renderuj±ce typu OpenGL[TM].
+%description -l pl.UTF-8
+Ta biblioteka udostÄ™pnia funkcje wczytujÄ…ce rÃ³Å¼ne popularne formaty
+siatek (plikÃ³w obiektÃ³w z modelerÃ³w 3D). Siatki sÄ… zapisywane w
+pamiÄ™ci w strukturach i tablicach Å‚atwo dostÄ™pnych poprzez API
+renderujÄ…ce typu OpenGL[TM].
 
-W chwili obecnej obs³uguje formaty LWO (LightWave) i 3DS (3D Studio).
+W chwili obecnej obsÅ‚uguje formaty LWO (LightWave) i 3DS (3D Studio).
 
 %package devel
 Summary:	LibMorph development files
-Summary(pl):	Pliki programistyczne LibMorph
+Summary(pl.UTF-8):   Pliki programistyczne LibMorph
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for LibMorph library.
 
-%description devel -l pl
-Pliki nag³ówkowe potrzebne do kompilacji programów u¿ywaj±cych
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe potrzebne do kompilacji programÃ³w uÅ¼ywajÄ…cych
 libmorph.
 
 %package static
 Summary:	LibMorph static library
-Summary(pl):	Statyczna biblioteka LibMorph
+Summary(pl.UTF-8):   Statyczna biblioteka LibMorph
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of libmorph library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna wersja biblioteki libmorph.
 
 %prep
