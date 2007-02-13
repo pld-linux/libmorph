@@ -1,5 +1,5 @@
 Summary:	libmorph Morphing Library
-Summary(pl.UTF-8):   libmorph biblioteka do morfingu
+Summary(pl.UTF-8):	libmorph biblioteka do morfingu
 Name:		libmorph
 Version:	0.1.2
 Release:	6
@@ -32,7 +32,7 @@ W chwili obecnej obsługuje formaty LWO (LightWave) i 3DS (3D Studio).
 
 %package devel
 Summary:	LibMorph development files
-Summary(pl.UTF-8):   Pliki programistyczne LibMorph
+Summary(pl.UTF-8):	Pliki programistyczne LibMorph
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -45,7 +45,7 @@ libmorph.
 
 %package static
 Summary:	LibMorph static library
-Summary(pl.UTF-8):   Statyczna biblioteka LibMorph
+Summary(pl.UTF-8):	Statyczna biblioteka LibMorph
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
